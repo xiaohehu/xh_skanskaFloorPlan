@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>26BE6D15-7BDE-421E-BC60-CF8DA50660D9</string>
+	<key>IDESourceControlProjectName</key>
+	<string>xh_skanskaFloorPlan</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>55409385-9AC1-40CD-AD95-3C78ADC1C2C0</key>
+		<string>https://github.com/xiaohehu/xh_skanskaFloorPlan.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>xh_skanskaFloorPlan.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>55409385-9AC1-40CD-AD95-3C78ADC1C2C0</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/xiaohehu/xh_skanskaFloorPlan.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>55409385-9AC1-40CD-AD95-3C78ADC1C2C0</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>55409385-9AC1-40CD-AD95-3C78ADC1C2C0</string>
+			<key>IDESourceControlWCCName</key>
+			<string>xh_skanskaFloorPlan</string>
+		</dict>
+	</array>
+</dict>
+</plist>

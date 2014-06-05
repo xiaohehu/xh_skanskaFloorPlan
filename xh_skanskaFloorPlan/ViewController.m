@@ -22,9 +22,11 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    [self.view setFrame:CGRectMake(0.0, 0.0, 1024, 768)];
     UIImageView *uiiv_bgImg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"floor_plan_bg.jpg"]];
     uiiv_bgImg.frame = self.view.bounds;
     [self.view addSubview: uiiv_bgImg];
+//    NSLog(@"the view is %@", [self.view description]);
 }
 
 - (void)didReceiveMemoryWarning
