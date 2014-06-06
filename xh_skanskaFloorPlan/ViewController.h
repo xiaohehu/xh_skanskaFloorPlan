@@ -8,6 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol dotsViewDatasorce;
+@protocol dotsViewDelegate;
+
 @interface ViewController : UIViewController
+{
+
+}
+
+@end
+
+@protocol dotsViewDatasorce <NSObject>
+
+-(NSDictionary*)
 
 @end

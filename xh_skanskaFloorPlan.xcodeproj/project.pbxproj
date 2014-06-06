@@ -30,6 +30,7 @@
 		820366571940F18400FB132A /* ebZoomingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 820366561940F18400FB132A /* ebZoomingScrollView.m */; };
 		8203665A1940F42700FB132A /* floor_plan_bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 820366581940F42700FB132A /* floor_plan_bg.jpg */; };
 		8203665B1940F42700FB132A /* floor_plan_bg@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 820366591940F42700FB132A /* floor_plan_bg@2x.jpg */; };
+		82FE13221941FCC80040E149 /* xh_dotsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 82FE13211941FCC80040E149 /* xh_dotsView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,8 @@
 		820366561940F18400FB132A /* ebZoomingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ebZoomingScrollView.m; sourceTree = "<group>"; };
 		820366581940F42700FB132A /* floor_plan_bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = floor_plan_bg.jpg; sourceTree = "<group>"; };
 		820366591940F42700FB132A /* floor_plan_bg@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "floor_plan_bg@2x.jpg"; sourceTree = "<group>"; };
+		82FE13201941FCC80040E149 /* xh_dotsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xh_dotsView.h; sourceTree = "<group>"; };
+		82FE13211941FCC80040E149 /* xh_dotsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = xh_dotsView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +144,8 @@
 				820366201940C2C300FB132A /* Main.storyboard */,
 				820366231940C2C300FB132A /* ViewController.h */,
 				820366241940C2C300FB132A /* ViewController.m */,
+				82FE13201941FCC80040E149 /* xh_dotsView.h */,
+				82FE13211941FCC80040E149 /* xh_dotsView.m */,
 				820366431940EEDA00FB132A /* floorplanData.plist */,
 				820366581940F42700FB132A /* floor_plan_bg.jpg */,
 				820366591940F42700FB132A /* floor_plan_bg@2x.jpg */,
@@ -301,6 +306,7 @@
 			files = (
 				8203664D1940EFFF00FB132A /* embDrawPath.m in Sources */,
 				820366571940F18400FB132A /* ebZoomingScrollView.m in Sources */,
+				82FE13221941FCC80040E149 /* xh_dotsView.m in Sources */,
 				820366251940C2C300FB132A /* ViewController.m in Sources */,
 				820366541940F15B00FB132A /* KSLabel.m in Sources */,
 				8203664E1940EFFF00FB132A /* embModelController.m in Sources */,
@@ -514,6 +520,7 @@
 				8203663F1940C2C400FB132A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		820366401940C2C400FB132A /* Build configuration list for PBXNativeTarget "xh_skanskaFloorPlanTests" */ = {
 			isa = XCConfigurationList;
@@ -522,6 +529,7 @@
 				820366421940C2C400FB132A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -26,7 +26,6 @@
     UIImageView *uiiv_bgImg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"floor_plan_bg.jpg"]];
     uiiv_bgImg.frame = self.view.bounds;
     [self.view addSubview: uiiv_bgImg];
-//    NSLog(@"the view is %@", [self.view description]);
 }
 
 - (void)didReceiveMemoryWarning
