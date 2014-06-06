@@ -20,7 +20,7 @@
 @end
 
 @implementation ViewController
-
+@synthesize modelController = _modelController;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -68,14 +68,25 @@
     
     [self loadPage:0];
     
-    [self.view addSubview: self.pageViewController.view];
+    
 }
 
 -(void)loadPage:(int)page {
-//    self.pageViewController.dataSource = self.modelController;
-//    [self setPageContainerData:pageToLoad];
+    self.pageViewController.dataSource = self.modelController;
+    [self.view addSubview: self.pageViewController.view];
+//    [self setPageContainerData:page];
 }
 
+
+- (embModelController *)modelController
+{
+	// Return the model controller object, creating it if necessary.
+	// In more complex implementations, the model controller may be passed to the view controller.
+    if (!_modelController) {
+        _modelController = [[embModelController alloc] init];
+    }
+    return _modelController;
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
