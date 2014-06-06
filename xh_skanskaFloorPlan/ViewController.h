@@ -20,6 +20,5 @@
 
 @protocol dotsViewDatasorce <NSObject>
 
--(NSDictionary*)
 
 @end
