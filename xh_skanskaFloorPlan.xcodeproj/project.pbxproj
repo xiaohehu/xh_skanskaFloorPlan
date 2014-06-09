@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8202F90E1945F5A5002A1B2B /* grfx_floorplan2_sample.png in Resources */ = {isa = PBXBuildFile; fileRef = 8202F9061945F5A5002A1B2B /* grfx_floorplan2_sample.png */; };
+		8202F90F1945F5A5002A1B2B /* grfx_floorplan2_sample@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8202F9071945F5A5002A1B2B /* grfx_floorplan2_sample@2x.png */; };
+		8202F9101945F5A5002A1B2B /* grfx_floorplan6_sample.png in Resources */ = {isa = PBXBuildFile; fileRef = 8202F9081945F5A5002A1B2B /* grfx_floorplan6_sample.png */; };
+		8202F9111945F5A5002A1B2B /* grfx_floorplan6_sample@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8202F9091945F5A5002A1B2B /* grfx_floorplan6_sample@2x.png */; };
+		8202F9121945F5A5002A1B2B /* grfx_floorplan7_sample.png in Resources */ = {isa = PBXBuildFile; fileRef = 8202F90A1945F5A5002A1B2B /* grfx_floorplan7_sample.png */; };
+		8202F9131945F5A5002A1B2B /* grfx_floorplan7_sample@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8202F90B1945F5A5002A1B2B /* grfx_floorplan7_sample@2x.png */; };
+		8202F9141945F5A5002A1B2B /* grfx_floorplan8_sample.png in Resources */ = {isa = PBXBuildFile; fileRef = 8202F90C1945F5A5002A1B2B /* grfx_floorplan8_sample.png */; };
+		8202F9151945F5A5002A1B2B /* grfx_floorplan8_sample@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8202F90D1945F5A5002A1B2B /* grfx_floorplan8_sample@2x.png */; };
 		8203660F1940C2C300FB132A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8203660E1940C2C300FB132A /* Foundation.framework */; };
 		820366111940C2C300FB132A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 820366101940C2C300FB132A /* CoreGraphics.framework */; };
 		820366131940C2C300FB132A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 820366121940C2C300FB132A /* UIKit.framework */; };
@@ -46,6 +54,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8202F9061945F5A5002A1B2B /* grfx_floorplan2_sample.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grfx_floorplan2_sample.png; sourceTree = "<group>"; };
+		8202F9071945F5A5002A1B2B /* grfx_floorplan2_sample@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "grfx_floorplan2_sample@2x.png"; sourceTree = "<group>"; };
+		8202F9081945F5A5002A1B2B /* grfx_floorplan6_sample.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grfx_floorplan6_sample.png; sourceTree = "<group>"; };
+		8202F9091945F5A5002A1B2B /* grfx_floorplan6_sample@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "grfx_floorplan6_sample@2x.png"; sourceTree = "<group>"; };
+		8202F90A1945F5A5002A1B2B /* grfx_floorplan7_sample.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grfx_floorplan7_sample.png; sourceTree = "<group>"; };
+		8202F90B1945F5A5002A1B2B /* grfx_floorplan7_sample@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "grfx_floorplan7_sample@2x.png"; sourceTree = "<group>"; };
+		8202F90C1945F5A5002A1B2B /* grfx_floorplan8_sample.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grfx_floorplan8_sample.png; sourceTree = "<group>"; };
+		8202F90D1945F5A5002A1B2B /* grfx_floorplan8_sample@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "grfx_floorplan8_sample@2x.png"; sourceTree = "<group>"; };
 		8203660B1940C2C300FB132A /* xh_skanskaFloorPlan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = xh_skanskaFloorPlan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8203660E1940C2C300FB132A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		820366101940C2C300FB132A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -111,6 +127,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8202F8E51945EAED002A1B2B /* Floorplans_stack */ = {
+			isa = PBXGroup;
+			children = (
+				8202F9061945F5A5002A1B2B /* grfx_floorplan2_sample.png */,
+				8202F9071945F5A5002A1B2B /* grfx_floorplan2_sample@2x.png */,
+				8202F9081945F5A5002A1B2B /* grfx_floorplan6_sample.png */,
+				8202F9091945F5A5002A1B2B /* grfx_floorplan6_sample@2x.png */,
+				8202F90A1945F5A5002A1B2B /* grfx_floorplan7_sample.png */,
+				8202F90B1945F5A5002A1B2B /* grfx_floorplan7_sample@2x.png */,
+				8202F90C1945F5A5002A1B2B /* grfx_floorplan8_sample.png */,
+				8202F90D1945F5A5002A1B2B /* grfx_floorplan8_sample@2x.png */,
+			);
+			path = Floorplans_stack;
+			sourceTree = "<group>";
+		};
 		820366021940C2C300FB132A = {
 			isa = PBXGroup;
 			children = (
@@ -155,6 +186,7 @@
 				820366431940EEDA00FB132A /* floorplanData.plist */,
 				820366581940F42700FB132A /* floor_plan_bg.jpg */,
 				820366591940F42700FB132A /* floor_plan_bg@2x.jpg */,
+				8202F8E51945EAED002A1B2B /* Floorplans_stack */,
 				820366451940EFFF00FB132A /* Utilities */,
 				820366261940C2C300FB132A /* Images.xcassets */,
 				820366151940C2C300FB132A /* Supporting Files */,
@@ -288,13 +320,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8202F9121945F5A5002A1B2B /* grfx_floorplan7_sample.png in Resources */,
+				8202F9151945F5A5002A1B2B /* grfx_floorplan8_sample@2x.png in Resources */,
 				820366441940EEDA00FB132A /* floorplanData.plist in Resources */,
 				8203665A1940F42700FB132A /* floor_plan_bg.jpg in Resources */,
+				8202F9111945F5A5002A1B2B /* grfx_floorplan6_sample@2x.png in Resources */,
 				820366271940C2C300FB132A /* Images.xcassets in Resources */,
+				8202F9101945F5A5002A1B2B /* grfx_floorplan6_sample.png in Resources */,
+				8202F90E1945F5A5002A1B2B /* grfx_floorplan2_sample.png in Resources */,
+				8202F90F1945F5A5002A1B2B /* grfx_floorplan2_sample@2x.png in Resources */,
 				820366191940C2C300FB132A /* InfoPlist.strings in Resources */,
 				820366221940C2C300FB132A /* Main.storyboard in Resources */,
 				82B69AA8194232B8004BCE39 /* data.plist in Resources */,
+				8202F9131945F5A5002A1B2B /* grfx_floorplan7_sample@2x.png in Resources */,
 				8203665B1940F42700FB132A /* floor_plan_bg@2x.jpg in Resources */,
+				8202F9141945F5A5002A1B2B /* grfx_floorplan8_sample.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
