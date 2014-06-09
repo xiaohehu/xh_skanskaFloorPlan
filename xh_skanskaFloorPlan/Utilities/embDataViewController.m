@@ -47,6 +47,9 @@
 	_floorplan = [_dict valueForKeyPath:@"floorplaninfo.floorplan"];
 	[_arr_floorplans addObject:[_floorplan objectAtIndex:0]];
 	
+    UIImageView *uiiv_bgImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"grfx_floorPlan_bg.jpg"]];
+    [self.view insertSubview:uiiv_bgImage atIndex:0];
+    
 	[self shellButton];
 }
 
@@ -69,7 +72,7 @@
 			_uii_PlanData = [UIImage imageNamed:planName];
 			
 			// plan info container
-			CGRect containerFrame = CGRectMake(802, 230, 185, 500);
+			CGRect containerFrame = CGRectMake(31, 192, 630, 330);
 			
 			_uiv_PlanDataContainer = [[UIView alloc] initWithFrame:containerFrame];
 			[self.view addSubview:_uiv_PlanDataContainer];

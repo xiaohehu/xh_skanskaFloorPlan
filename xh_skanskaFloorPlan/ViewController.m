@@ -15,10 +15,17 @@
 
 @interface ViewController () <UIPageViewControllerDelegate, dotsViewDelegate>
 
+@property (strong, nonatomic)           UIImageView             *uiiv_bgImg;
+@property (strong, nonatomic)           UIImageView             *uiiv_bldingImg;
+@property (strong, nonatomic)           UIView                  *uiv_floorIndicator;
+
+@property (strong, nonatomic)           NSMutableArray          *arr_bldingBtnArray;
+@property (strong, nonatomic)           NSMutableArray          *arr_dotViewArray;
+
 @property (readonly, strong, nonatomic) embModelController		*modelController;
 @property (readonly, strong, nonatomic) NSArray					*arr_pageData;
 @property (strong, nonatomic)           UIPageViewController	*pageViewController;
-
+@property (nonatomic, readwrite)        NSInteger               currentPage;
 @end
 
 @implementation ViewController
@@ -33,14 +40,82 @@
 	_pageViewController = nil;
     
 	// Do any additional setup after loading the view, typically from a nib.
-    self.view.backgroundColor = [UIColor darkGrayColor];
+    [self initVC];
+}
+
+-(void)initVC {
+    //Init Arrays & Views
+    _arr_bldingBtnArray = [[NSMutableArray alloc] init];
+    _arr_dotViewArray = [[NSMutableArray alloc] init];
+    //Set Background image
+    self.view.backgroundColor = [UIColor whiteColor];
     [self.view setFrame:CGRectMake(0.0, 0.0, 1024, 768)];
-    UIImageView *uiiv_bgImg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"floor_plan_bg.jpg"]];
-    uiiv_bgImg.frame = self.view.bounds;
-    [self.view addSubview: uiiv_bgImg];
+    _uiiv_bgImg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"grfx_floorPlan_bg.jpg"]];
+    _uiiv_bgImg.frame = self.view.bounds;
+    [self.view addSubview: _uiiv_bgImg];
+    
+    //Add white building image
+    _uiiv_bldingImg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"grfx_floorplan_blding.png"]];
+    _uiiv_bldingImg.frame = CGRectMake(93, 57, _uiiv_bldingImg.frame.size.width, _uiiv_bldingImg.frame.size.height);
+    _uiiv_bldingImg.userInteractionEnabled = YES;
+    [self.view addSubview: _uiiv_bldingImg];
+    
+    //Set Floor Indicator
+    _uiv_floorIndicator = [[UIView alloc] init];
+    _uiv_floorIndicator.alpha = 0.6;
+    _uiv_floorIndicator.frame =CGRectZero;
+    [_uiiv_bldingImg addSubview: _uiv_floorIndicator];
+    _uiv_floorIndicator.hidden = YES;
+    
+    //Set colored floor
+    for (int i = 0; i < 4; i++) {
+        switch (i) {
+            case 0: {
+                UIButton *uib_bldingFloor = [UIButton buttonWithType:UIButtonTypeCustom];
+                uib_bldingFloor.frame = CGRectMake(31, 347, 387, 36);
+                uib_bldingFloor.backgroundColor = [UIColor clearColor];
+                uib_bldingFloor.tag = i;
+                [uib_bldingFloor addTarget:self action:@selector(floorBtnTapped:) forControlEvents:UIControlEventTouchUpInside];
+                [_uiiv_bldingImg addSubview: uib_bldingFloor];
+                [_arr_bldingBtnArray addObject:uib_bldingFloor];
+                break;
+            }
+            case 1: {
+                UIButton *uib_bldingFloor = [UIButton buttonWithType:UIButtonTypeCustom];
+                uib_bldingFloor.frame = CGRectMake(31, 384, 387, 36);
+                uib_bldingFloor.backgroundColor = [UIColor clearColor];
+                uib_bldingFloor.tag = i;
+                [uib_bldingFloor addTarget:self action:@selector(floorBtnTapped:) forControlEvents:UIControlEventTouchUpInside];
+                [_uiiv_bldingImg addSubview: uib_bldingFloor];
+                [_arr_bldingBtnArray addObject:uib_bldingFloor];
+                break;
+            }
+            case 2: {
+                UIButton *uib_bldingFloor = [UIButton buttonWithType:UIButtonTypeCustom];
+                uib_bldingFloor.frame = CGRectMake(31, 420, 387, 36);
+                uib_bldingFloor.backgroundColor = [UIColor clearColor];
+                uib_bldingFloor.tag = i;
+                [uib_bldingFloor addTarget:self action:@selector(floorBtnTapped:) forControlEvents:UIControlEventTouchUpInside];
+                [_uiiv_bldingImg addSubview: uib_bldingFloor];
+                [_arr_bldingBtnArray addObject:uib_bldingFloor];
+                break;
+            }
+            case 3: {
+                UIButton *uib_bldingFloor = [UIButton buttonWithType:UIButtonTypeCustom];
+                uib_bldingFloor.frame = CGRectMake(2, 574, 645, 54);
+                uib_bldingFloor.backgroundColor = [UIColor clearColor];
+                uib_bldingFloor.tag = i;
+                [uib_bldingFloor addTarget:self action:@selector(floorBtnTapped:) forControlEvents:UIControlEventTouchDown];
+                [_uiiv_bldingImg addSubview: uib_bldingFloor];
+                [_arr_bldingBtnArray addObject:uib_bldingFloor];
+                break;
+            }
+            default:
+                break;
+        }
+    }
     
     _arr_pageData = [[NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"floorplanData" ofType:@"plist"]] copy];
-    
     _modelController = [[embModelController alloc] init];
     
     [self initDotsView];
@@ -55,26 +130,111 @@
         [dotView setDict_data:dotsData];
         dotView.tag = i;
         dotView.delegate = self;
-        
+        [_arr_dotViewArray addObject:dotView];
         [self.view addSubview: dotView];
     }
 }
 
+#pragma mark - Dotview's button is tapped & Floor button is tapped
+
 -(void)seletctDotsViewItemAtIndex:(NSInteger)index {
-    NSLog(@"Should load floor page view and the index is %i", (int)index);
+    [self handleFloorIndicator:index];
+}
+
+-(void)floorBtnTapped:(id)sender {
+    UIButton *tmpBtn = sender;
+    [self handleFloorIndicator:tmpBtn.tag];
+}
+
+-(void)tapToBack:(UITapGestureRecognizer *)sender {
+    UITapGestureRecognizer *tmpTap = sender;
+    [_uiiv_bldingImg removeGestureRecognizer:tmpTap];
+    
+    for (UIButton *tmpBtn in _arr_bldingBtnArray) {
+        tmpBtn.userInteractionEnabled = YES;
+    }
+    [UIView animateWithDuration:0.33 animations:^{
+        self.pageViewController.view.alpha = 0.0;
+    }];
+    
+    [_pageViewController willMoveToParentViewController:nil];
+	[_pageViewController.view removeFromSuperview];
+	[_pageViewController removeFromParentViewController];
+	_pageViewController = nil;
+    
+    [UIView animateWithDuration:0.5 animations:^{
+        _uiiv_bgImg.hidden = NO;
+        _uiiv_bldingImg.transform = CGAffineTransformMakeScale(1.0, 1.0);
+        _uiiv_bldingImg.frame = CGRectMake(93, 57, _uiiv_bldingImg.frame.size.width, _uiiv_bldingImg.frame.size.height);
+    } completion:^(BOOL finished){
+        for (UIView *tmpDotView in _arr_dotViewArray) {
+            tmpDotView.alpha = 1.0;
+        }
+    }];
+}
+
+-(void)handleFloorIndicator:(NSInteger)index {
+    
+    UIButton *tmpBtn = [_arr_bldingBtnArray objectAtIndex:index];
+    
+    if (_uiv_floorIndicator.hidden) {
+        _uiv_floorIndicator.hidden = NO;
+        _uiv_floorIndicator.frame = tmpBtn.frame;
+        [UIView animateWithDuration:0.33 animations:^{
+            _uiv_floorIndicator.alpha = 0.6;
+            _uiv_floorIndicator.backgroundColor = [UIColor skDarkYellow];
+        }
+                         completion:^(BOOL finished){
+                             [self initPageView:index];
+                             [self scaleAndMovePageVC];
+                             for (UIView *tmpDotView in _arr_dotViewArray) {
+                                 tmpDotView.alpha = 0.0;
+                             }
+                         }];
+        _currentPage = index;
+    }
+    else {
+        if (index == _currentPage) {
+            [UIView animateWithDuration:0.33 animations:^{
+                _uiv_floorIndicator.alpha = 0.0;}
+                             completion:^(BOOL finished){
+                                 _uiv_floorIndicator.hidden = YES;
+                             }];
+            return;
+        }
+        else {
+            [UIView animateWithDuration:0.33 animations:^{
+                _uiv_floorIndicator.frame = tmpBtn.frame;
+                _uiv_floorIndicator.backgroundColor = [UIColor skDarkYellow];
+            }
+                             completion:^(BOOL finished){
+                                 [self initPageView:index];
+                                 [self scaleAndMovePageVC];
+                                 for (UIView *tmpDotView in _arr_dotViewArray) {
+                                     tmpDotView.alpha = 0.0;
+                                 }
+                             }];
+            _currentPage = index;
+        }
+    }
+}
+
+#pragma mark - Set up page view
+
+-(void)initPageView:(NSInteger)index {
     self.pageViewController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationVertical options:nil];
     self.pageViewController.delegate = self;
     self.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     self.view.autoresizesSubviews =YES;
-    self.pageViewController.view.frame = CGRectMake(331, 0, 693, 768);
+    self.pageViewController.view.frame = CGRectMake(0, 0, 1024, 768);
     [self.pageViewController didMoveToParentViewController:self];
     [self addChildViewController:self.pageViewController];
     [self.view insertSubview:self.pageViewController.view atIndex:0];
-    [self.pageViewController.view setBackgroundColor:[UIColor skLightYellow]];
+    self.pageViewController.view.alpha = 0.0;
+    [self.pageViewController.view setBackgroundColor:[UIColor clearColor]];
+    
     
     [self loadPage:index];
-    
-    
 }
 
 -(void)loadPage:(int)page {
@@ -91,6 +251,67 @@
                                      completion:nil];
 }
 
+#pragma mark - scale building image
+
+- (void)scaleAndMovePageVC
+{
+    for (UIButton *tmpBtn in _arr_bldingBtnArray) {
+        tmpBtn.userInteractionEnabled = NO;
+    }
+    
+    UITapGestureRecognizer *tapToBack = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapToBack:)];
+    tapToBack.numberOfTapsRequired = 1;
+    [_uiiv_bldingImg addGestureRecognizer:tapToBack];
+    _uiiv_bgImg.hidden = YES;
+    
+    [UIView animateWithDuration:1.0 animations:^{
+        _uiiv_bldingImg.transform = CGAffineTransformMakeScale(0.44, 0.44);
+        _uiiv_bldingImg.frame = CGRectMake(21.0, 384.0, _uiiv_bldingImg.frame.size.width, _uiiv_bldingImg.frame.size.height);
+        self.pageViewController.view.center = CGPointMake(844,430);
+    } completion:^(BOOL finished){
+        [UIView animateWithDuration:0.33 animations:^{
+            self.pageViewController.view.alpha = 1.0;}];
+        
+        for (UIView *tmpDotView in _arr_dotViewArray) {
+            tmpDotView.alpha = 0.0;
+        }
+    }];
+    
+}
+
+#pragma mark - PageViewController
+#pragma mark update page index
+- (void)pageViewController:(UIPageViewController *)pvc didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray *)previousViewControllers transitionCompleted:(BOOL)completed
+{
+    // If the page did not turn
+    if (!completed)
+    {
+        // You do nothing because whatever page you thought you were on
+        // before the gesture started is still the correct page
+		NSLog(@"same page");
+        return;
+    }
+    // This is where you would know the page number changed and handle it appropriately
+    NSLog(@"new page");
+    [self setPageIndex];
+}
+
+#pragma mark set page index
+-(void)setPageIndex
+{
+    embDataViewController *theCurrentViewController = [self.pageViewController.viewControllers objectAtIndex:0];
+    int index = (int)[self.modelController indexOfViewController:theCurrentViewController];
+    _currentPage = index;
+    UIButton *tmpBtn;
+    for (UIButton *tmp in _arr_bldingBtnArray) {
+        if (tmp.tag == index) {
+            tmpBtn = tmp;
+        }
+    }
+    [UIView animateWithDuration:0.33 animations:^{
+        _uiv_floorIndicator.frame = tmpBtn.frame;
+    }];
+}
 
 - (embModelController *)modelController
 {

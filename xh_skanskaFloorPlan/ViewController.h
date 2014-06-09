@@ -11,7 +11,7 @@
 @protocol dotsViewDatasorce;
 @protocol dotsViewDelegate;
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <UIGestureRecognizerDelegate>
 {
 
 }
