@@ -11,6 +11,7 @@
 #import "embModelController.h"
 #import "neoHotspotsView.h"
 #import "xh_dotsView.h"
+#import "UIColor+Extensions.h"
 
 @interface ViewController () <UIPageViewControllerDelegate, dotsViewDelegate>
 
@@ -60,18 +61,18 @@
 }
 
 -(void)seletctDotsViewItemAtIndex:(NSInteger)index {
-    NSLog(@"Should load floor page view");
+    NSLog(@"Should load floor page view and the index is %i", (int)index);
     self.pageViewController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationVertical options:nil];
     self.pageViewController.delegate = self;
     self.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     self.view.autoresizesSubviews =YES;
-    self.pageViewController.view.frame = CGRectMake(0, 0, 1024, 768);
+    self.pageViewController.view.frame = CGRectMake(331, 0, 693, 768);
     [self.pageViewController didMoveToParentViewController:self];
     [self addChildViewController:self.pageViewController];
     [self.view insertSubview:self.pageViewController.view atIndex:0];
-    [self.pageViewController.view setBackgroundColor:[UIColor whiteColor]];
+    [self.pageViewController.view setBackgroundColor:[UIColor skLightYellow]];
     
-    [self loadPage:0];
+    [self loadPage:index];
     
     
 }
