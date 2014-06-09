@@ -4,13 +4,49 @@
 <array>
 	<dict>
 		<key>xy</key>
-		<string>60,60</string>
+		<string>335,410</string>
 		<key>num</key>
-		<integer>20</integer>
+		<integer>22</integer>
 		<key>up</key>
 		<true/>
 		<key>text</key>
 		<string>8th   Floor</string>
+		<key>zValue</key>
+		<integer>0</integer>
+	</dict>
+	<dict>
+		<key>xy</key>
+		<string>416,450</string>
+		<key>num</key>
+		<integer>22</integer>
+		<key>up</key>
+		<true/>
+		<key>text</key>
+		<string>7th   Floor</string>
+		<key>zValue</key>
+		<integer>0</integer>
+	</dict>
+	<dict>
+		<key>xy</key>
+		<string>499,486</string>
+		<key>num</key>
+		<integer>22</integer>
+		<key>up</key>
+		<true/>
+		<key>text</key>
+		<string>6th   Floor</string>
+		<key>zValue</key>
+		<integer>0</integer>
+	</dict>
+	<dict>
+		<key>xy</key>
+		<string>559,640</string>
+		<key>num</key>
+		<integer>22</integer>
+		<key>up</key>
+		<true/>
+		<key>text</key>
+		<string>2th   Floor</string>
 		<key>zValue</key>
 		<integer>0</integer>
 	</dict>
