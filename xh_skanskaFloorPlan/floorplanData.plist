@@ -4,299 +4,12 @@
 <array>
 	<dict>
 		<key>FloorPlan</key>
-		<string>Floor</string>
-		<key>floorplaninfo</key>
-		<array>
-			<dict>
-				<key>floorplan</key>
-				<string>grfx_floor_plans6_11.png</string>
-				<key>floorplancaption</key>
-				<string>11</string>
-				<key>floorplate</key>
-				<string></string>
-				<key>floorstack</key>
-				<string></string>
-				<key>pdf</key>
-				<string>local10.pdf</string>
-				<key>square</key>
-				<string>31042</string>
-				<key>floorinfo</key>
-				<array>
-					<string></string>
-				</array>
-				<key>hotspots</key>
-				<array>
-					<dict>
-						<key>type</key>
-						<string>image</string>
-						<key>background</key>
-						<string>view-icon-sq.png</string>
-						<key>xy</key>
-						<string>665,130</string>
-						<key>angle</key>
-						<string>0</string>
-						<key>caption</key>
-						<string>Office</string>
-						<key>RGB</key>
-						<string></string>
-						<key>fileName</key>
-						<string></string>
-						<key>motionImg</key>
-						<array>
-							<dict>
-								<key>offsets</key>
-								<array>
-									<string>5</string>
-									<string>15</string>
-									<string>40</string>
-								</array>
-								<key>images</key>
-								<array>
-									<string>OFFICE_SKY.jpg</string>
-									<string>OFFICE_MIDGROUND.png</string>
-									<string>OFFICE_FOREGROUND.png</string>
-								</array>
-							</dict>
-						</array>
-					</dict>
-				</array>
-				<key>testfits</key>
-				<dict>
-					<key>testfitinfo</key>
-					<array>
-						<string>grfx-fp-panel-TF-midrise-perimeter.png</string>
-						<string>grfx-fp-panel-TF-midrise-perimeter.png</string>
-						<string>grfx-fp-panel-TF-midrise-perimeter.png</string>
-					</array>
-					<key>testfitimages</key>
-					<array>
-						<string>grfx_floor_plans_1_tenants.png</string>
-						<string>grfx_floor_plans_2_tenants.png</string>
-						<string>grfx_floor_plans_4_tenants.png</string>
-					</array>
-					<key>testfitcaptions</key>
-					<array>
-						<string>Traditional</string>
-						<string>Innovative</string>
-						<string>High-Density</string>
-					</array>
-				</dict>
-				<key>views</key>
-				<dict>
-					<key>viewimages</key>
-					<array>
-						<string>625 Feet_W_HIGR4810_Crop.jpg</string>
-						<string>625 Feet_S_HIGR4766_Crop.jpg</string>
-						<string>625 Feet_E_HIGR4910_Crop.jpg</string>
-						<string>625 Feet_N_HIGR4646_Crop.jpg</string>
-					</array>
-					<key>viewcaptions</key>
-					<array>
-						<string>West View - High-Rise - 600&apos;</string>
-						<string>South - High-Rise 600&apos;</string>
-						<string>East View - High-Rise 600&apos;</string>
-						<string>North View - High-Rise 600&apos;</string>
-					</array>
-					<key>viewlocations</key>
-					<array>
-						<string>490,85</string>
-						<string>202,612</string>
-						<string>490,636</string>
-						<string>770,614</string>
-					</array>
-					<key>viewbgs</key>
-					<array>
-						<string>grfx_avail_view_w.png</string>
-						<string>grfx_avail_view_se.png</string>
-						<string>grfx_avail_view_e.png</string>
-						<string>grfx_avail_view_ne.png</string>
-					</array>
-				</dict>
-			</dict>
-		</array>
-	</dict>
-	<dict>
-		<key>FloorPlan</key>
 		<string>FLOOR</string>
 		<key>floorplaninfo</key>
 		<array>
 			<dict>
 				<key>floorplan</key>
-				<string>grfx_floor_plans6_11.png</string>
-				<key>floorplancaption</key>
-				<string>10</string>
-				<key>floorplate</key>
-				<string></string>
-				<key>floorstack</key>
-				<string></string>
-				<key>pdf</key>
-				<string>local9.pdf</string>
-				<key>square</key>
-				<string>31042</string>
-				<key>floorinfo</key>
-				<array>
-					<string></string>
-				</array>
-				<key>hotspots</key>
-				<array>
-					<dict>
-						<key>type</key>
-						<string>image</string>
-						<key>background</key>
-						<string>view-icon-sq.png</string>
-						<key>xy</key>
-						<string>665,130</string>
-						<key>angle</key>
-						<string>0</string>
-						<key>caption</key>
-						<string>Office</string>
-						<key>RGB</key>
-						<string></string>
-						<key>fileName</key>
-						<string></string>
-						<key>motionImg</key>
-						<array>
-							<dict>
-								<key>offsets</key>
-								<array>
-									<string>5</string>
-									<string>15</string>
-									<string>40</string>
-								</array>
-								<key>images</key>
-								<array>
-									<string>OFFICE_SKY.jpg</string>
-									<string>OFFICE_MIDGROUND.png</string>
-									<string>OFFICE_FOREGROUND.png</string>
-								</array>
-							</dict>
-						</array>
-					</dict>
-				</array>
-				<key>testfits</key>
-				<dict>
-					<key>testfitinfo</key>
-					<array>
-						<string>grfx-fp-panel-TF-midrise-perimeter.png</string>
-						<string>grfx-fp-panel-TF-midrise-perimeter.png</string>
-						<string>grfx-fp-panel-TF-midrise-perimeter.png</string>
-					</array>
-					<key>testfitimages</key>
-					<array>
-						<string>grfx_floor_plans_1_tenants.png</string>
-						<string>grfx_floor_plans_2_tenants.png</string>
-						<string>grfx_floor_plans_4_tenants.png</string>
-					</array>
-					<key>testfitcaptions</key>
-					<array>
-						<string>Traditional</string>
-						<string>Innovative</string>
-						<string>High-Density</string>
-					</array>
-				</dict>
-			</dict>
-		</array>
-	</dict>
-	<dict>
-		<key>FloorPlan</key>
-		<string>FLOOR</string>
-		<key>floorplaninfo</key>
-		<array>
-			<dict>
-				<key>floorplan</key>
-				<string>grfx_floor_plans6_11.png</string>
-				<key>floorplancaption</key>
-				<string>9</string>
-				<key>floorplate</key>
-				<string></string>
-				<key>floorstack</key>
-				<string></string>
-				<key>pdf</key>
-				<string>local8.pdf</string>
-				<key>square</key>
-				<string>31042</string>
-				<key>floorinfo</key>
-				<array>
-					<string></string>
-				</array>
-				<key>testfits</key>
-				<dict>
-					<key>testfitinfo</key>
-					<array>
-						<string>grfx-fp-panel-TF-midrise-perimeter.png</string>
-						<string>grfx-fp-panel-TF-midrise-perimeter.png</string>
-						<string>grfx-fp-panel-TF-midrise-perimeter.png</string>
-					</array>
-					<key>testfitimages</key>
-					<array>
-						<string>grfx_floor_plans_1_tenants.png</string>
-						<string>grfx_floor_plans_2_tenants.png</string>
-						<string>grfx_floor_plans_4_tenants.png</string>
-					</array>
-					<key>testfitcaptions</key>
-					<array>
-						<string>Traditional</string>
-						<string>Innovative</string>
-						<string>High-Density</string>
-					</array>
-				</dict>
-			</dict>
-		</array>
-	</dict>
-	<dict>
-		<key>FloorPlan</key>
-		<string>FLOOR</string>
-		<key>floorplaninfo</key>
-		<array>
-			<dict>
-				<key>floorplan</key>
-				<string>grfx_floor_plans6_11.png</string>
-				<key>floorplancaption</key>
-				<string>8</string>
-				<key>floorplate</key>
-				<string></string>
-				<key>floorstack</key>
-				<string></string>
-				<key>pdf</key>
-				<string>local1.pdf</string>
-				<key>square</key>
-				<string>31042</string>
-				<key>floorinfo</key>
-				<array>
-					<string></string>
-				</array>
-				<key>testfits</key>
-				<dict>
-					<key>testfitinfo</key>
-					<array>
-						<string>grfx-fp-panel-TF-midrise-perimeter.png</string>
-						<string>grfx-fp-panel-TF-midrise-perimeter.png</string>
-						<string>grfx-fp-panel-TF-midrise-perimeter.png</string>
-					</array>
-					<key>testfitimages</key>
-					<array>
-						<string>grfx_floor_plans_1_tenants.png</string>
-						<string>grfx_floor_plans_2_tenants.png</string>
-						<string>grfx_floor_plans_4_tenants.png</string>
-					</array>
-					<key>testfitcaptions</key>
-					<array>
-						<string>Traditional</string>
-						<string>Innovative</string>
-						<string>High-Density</string>
-					</array>
-				</dict>
-			</dict>
-		</array>
-	</dict>
-	<dict>
-		<key>FloorPlan</key>
-		<string>FLOOR</string>
-		<key>floorplaninfo</key>
-		<array>
-			<dict>
-				<key>floorplan</key>
-				<string>grfx_floor_plans6_11.png</string>
+				<string>grfx_floorplan8_sample.png</string>
 				<key>floorplancaption</key>
 				<string>7</string>
 				<key>floorplate</key>
@@ -317,19 +30,16 @@
 					<array>
 						<string>grfx-fp-panel-TF-midrise-perimeter.png</string>
 						<string>grfx-fp-panel-TF-midrise-perimeter.png</string>
-						<string>grfx-fp-panel-TF-midrise-perimeter.png</string>
 					</array>
 					<key>testfitimages</key>
 					<array>
 						<string>grfx_floor_plans_1_tenants.png</string>
 						<string>grfx_floor_plans_2_tenants.png</string>
-						<string>grfx_floor_plans_4_tenants.png</string>
 					</array>
 					<key>testfitcaptions</key>
 					<array>
-						<string>Traditional</string>
-						<string>Innovative</string>
-						<string>High-Density</string>
+						<string>8TH FLOOR</string>
+						<string>8TH FLOOR TEST-FIT</string>
 					</array>
 				</dict>
 			</dict>
@@ -342,7 +52,7 @@
 		<array>
 			<dict>
 				<key>floorplan</key>
-				<string>grfx_floor_plans6_11.png</string>
+				<string>grfx_floorplan7_sample.png</string>
 				<key>floorplancaption</key>
 				<string>6</string>
 				<key>floorplate</key>
@@ -363,19 +73,16 @@
 					<array>
 						<string>grfx-fp-panel-TF-midrise-perimeter.png</string>
 						<string>grfx-fp-panel-TF-midrise-perimeter.png</string>
-						<string>grfx-fp-panel-TF-midrise-perimeter.png</string>
 					</array>
 					<key>testfitimages</key>
 					<array>
 						<string>grfx_floor_plans_1_tenants.png</string>
 						<string>grfx_floor_plans_2_tenants.png</string>
-						<string>grfx_floor_plans_4_tenants.png</string>
 					</array>
 					<key>testfitcaptions</key>
 					<array>
-						<string>Traditional</string>
-						<string>Innovative</string>
-						<string>High-Density</string>
+						<string>7TH FLOOR</string>
+						<string>7TH FLOOR TEST-FIT</string>
 					</array>
 				</dict>
 			</dict>
@@ -388,7 +95,7 @@
 		<array>
 			<dict>
 				<key>floorplan</key>
-				<string>grfx_floor_plans5.png</string>
+				<string>grfx_floorplan6_sample.png</string>
 				<key>floorplancaption</key>
 				<string>5</string>
 				<key>floorplate</key>
@@ -403,50 +110,23 @@
 				<array>
 					<string></string>
 				</array>
-				<key>hotspots</key>
-				<array>
-					<dict>
-						<key>type</key>
-						<string>image</string>
-						<key>background</key>
-						<string>view-icon-sq.png</string>
-						<key>xy</key>
-						<string>145,450</string>
-						<key>angle</key>
-						<string>110</string>
-						<key>caption</key>
-						<string>Terrace</string>
-						<key>RGB</key>
-						<string></string>
-						<key>fileName</key>
-						<string></string>
-						<key>motionImg</key>
-						<array>
-							<dict>
-								<key>offsets</key>
-								<array>
-									<string>5</string>
-									<string>20</string>
-									<string>30</string>
-								</array>
-								<key>images</key>
-								<array>
-									<string>TERRACE_SKY.jpg</string>
-									<string>TERRACE_MIDGROUND.png</string>
-									<string>TERRACE_FOREGROUND.png</string>
-								</array>
-							</dict>
-						</array>
-					</dict>
-				</array>
 				<key>testfits</key>
 				<dict>
 					<key>testfitinfo</key>
-					<array/>
+					<array>
+						<string>grfx-fp-panel-TF-midrise-perimeter.png</string>
+						<string>grfx-fp-panel-TF-midrise-perimeter.png</string>
+					</array>
 					<key>testfitimages</key>
-					<array/>
+					<array>
+						<string>grfx_floor_plans_1_tenants.png</string>
+						<string>grfx_floor_plans_2_tenants.png</string>
+					</array>
 					<key>testfitcaptions</key>
-					<array/>
+					<array>
+						<string>6TH FLOOR</string>
+						<string>6TH FLOOR TEST-FIT</string>
+					</array>
 				</dict>
 			</dict>
 		</array>
@@ -458,7 +138,7 @@
 		<array>
 			<dict>
 				<key>floorplan</key>
-				<string>grfx_floor_plans4.png</string>
+				<string>grfx_floorplan2_sample.png</string>
 				<key>floorplancaption</key>
 				<string>4</string>
 				<key>floorplate</key>
@@ -476,11 +156,20 @@
 				<key>testfits</key>
 				<dict>
 					<key>testfitinfo</key>
-					<array/>
+					<array>
+						<string>grfx-fp-panel-TF-midrise-perimeter.png</string>
+						<string>grfx-fp-panel-TF-midrise-perimeter.png</string>
+					</array>
 					<key>testfitimages</key>
-					<array/>
+					<array>
+						<string>grfx_floor_plans_1_tenants.png</string>
+						<string>grfx_floor_plans_2_tenants.png</string>
+					</array>
 					<key>testfitcaptions</key>
-					<array/>
+					<array>
+						<string>2ND FLOOR</string>
+						<string>2ND FLOOR TEST-FIT</string>
+					</array>
 				</dict>
 			</dict>
 		</array>
