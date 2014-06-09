@@ -15,7 +15,8 @@
 @interface ViewController () <UIPageViewControllerDelegate, dotsViewDelegate>
 
 @property (readonly, strong, nonatomic) embModelController		*modelController;
-@property (strong, nonatomic)		UIPageViewController	*pageViewController;
+@property (readonly, strong, nonatomic) NSArray					*arr_pageData;
+@property (strong, nonatomic)           UIPageViewController	*pageViewController;
 
 @end
 
@@ -36,6 +37,10 @@
     UIImageView *uiiv_bgImg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"floor_plan_bg.jpg"]];
     uiiv_bgImg.frame = self.view.bounds;
     [self.view addSubview: uiiv_bgImg];
+    
+    _arr_pageData = [[NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"floorplanData" ofType:@"plist"]] copy];
+    
+    _modelController = [[embModelController alloc] init];
     
     [self initDotsView];
 }
@@ -74,7 +79,15 @@
 -(void)loadPage:(int)page {
     self.pageViewController.dataSource = self.modelController;
     [self.view addSubview: self.pageViewController.view];
-//    [self setPageContainerData:page];
+    
+    embDataViewController *startingViewController = [self.modelController viewControllerAtIndex:page storyboard:self.storyboard];
+	
+	NSArray *viewControllers = @[startingViewController];
+    
+    [self.pageViewController setViewControllers:viewControllers
+                                      direction:UIPageViewControllerNavigationDirectionReverse
+                                       animated:NO
+                                     completion:nil];
 }
 
 
