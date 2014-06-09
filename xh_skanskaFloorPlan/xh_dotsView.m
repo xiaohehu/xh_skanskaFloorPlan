@@ -122,7 +122,6 @@
 
 -(void)topButtonTapped:(id)sender {
     UIButton *tmp = sender;
-    tmp.tag = self.tag;
     [self seletctDotsViewItemAtIndex:tmp.tag];
 }
 
