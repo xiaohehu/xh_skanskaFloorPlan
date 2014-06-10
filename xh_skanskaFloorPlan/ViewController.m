@@ -138,10 +138,22 @@
 #pragma mark - Dotview's button is tapped & Floor button is tapped
 
 -(void)seletctDotsViewItemAtIndex:(NSInteger)index {
+    for (UIButton *tmp in _arr_bldingBtnArray) {
+        tmp.userInteractionEnabled = NO;
+    }
+    for (UIView *tmp in _arr_dotViewArray) {
+        tmp.userInteractionEnabled = NO;
+    }
     [self handleFloorIndicator:index];
 }
 
 -(void)floorBtnTapped:(id)sender {
+    for (UIButton *tmp in _arr_bldingBtnArray) {
+        tmp.userInteractionEnabled = NO;
+    }
+    for (UIView *tmp in _arr_dotViewArray) {
+        tmp.userInteractionEnabled = NO;
+    }
     UIButton *tmpBtn = sender;
     [self handleFloorIndicator:tmpBtn.tag];
 }
@@ -152,6 +164,9 @@
     
     for (UIButton *tmpBtn in _arr_bldingBtnArray) {
         tmpBtn.userInteractionEnabled = YES;
+    }
+    for (UIView *tmp in _arr_dotViewArray) {
+        tmp.userInteractionEnabled = YES;
     }
     [UIView animateWithDuration:0.33 animations:^{
         self.pageViewController.view.alpha = 0.0;
@@ -176,7 +191,6 @@
 -(void)handleFloorIndicator:(NSInteger)index {
     
     UIButton *tmpBtn = [_arr_bldingBtnArray objectAtIndex:index];
-    
     if (_uiv_floorIndicator.hidden) {
         _uiv_floorIndicator.hidden = NO;
         _uiv_floorIndicator.frame = tmpBtn.frame;
@@ -200,6 +214,12 @@
                              completion:^(BOOL finished){
                                  _uiv_floorIndicator.hidden = YES;
                              }];
+            for (UIButton *tmpBtn in _arr_bldingBtnArray) {
+                tmpBtn.userInteractionEnabled = YES;
+            }
+            for (UIView *tmp in _arr_dotViewArray) {
+                tmp.userInteractionEnabled = YES;
+            }
             return;
         }
         else {
