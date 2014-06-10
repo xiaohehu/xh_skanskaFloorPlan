@@ -32,7 +32,7 @@
 			
 			_scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0,0,self.frame.size.width,self.frame.size.height)];
 			_scrollView.delegate = self;
-            
+            _scrollView.clipsToBounds = NO;
 			//[_scrollView setBackgroundColor:[UIColor redColor]];
 			[self addSubview:_scrollView];
 			
@@ -40,7 +40,7 @@
 			//_blurView.frame = CGRectInset(self.frame, 5*self.frame.size.width/100, 5*self.frame.size.height/100);
             
 			[_blurView setUserInteractionEnabled:YES];
-			[_blurView setContentMode:UIViewContentModeScaleAspectFit];
+			[_blurView setContentMode:UIViewContentModeTop];
 			_blurView.image = thisImage;
 			[self zoomableScrollview:self withImage:_blurView];
             

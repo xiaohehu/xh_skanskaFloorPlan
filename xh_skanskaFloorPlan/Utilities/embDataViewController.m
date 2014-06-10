@@ -50,7 +50,7 @@
     UIImageView *uiiv_bgImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"grfx_floorPlan_bg.jpg"]];
     [self.view insertSubview:uiiv_bgImage atIndex:0];
     
-	[self shellButton];
+//	[self shellButton];
 }
 
 #pragma mark - LAYOUT FLOOR PLAN DATA
@@ -59,7 +59,7 @@
 	_uii_Plan = [UIImage imageNamed:_floorplan[0]];
 	if (!_zoomingScroll) {
 		// NSLog(@"running");
-		_zoomingScroll = [[ebZoomingScrollView alloc] initWithFrame:CGRectMake(20, 180, 755, 500) image:_uii_Plan shouldZoom:YES];
+		_zoomingScroll = [[ebZoomingScrollView alloc] initWithFrame:CGRectMake(2, 190, 688, 530) image:_uii_Plan shouldZoom:YES];
 		[self.view insertSubview:_zoomingScroll atIndex:1];
 		_zoomingScroll.delegate=self;
 	}
@@ -298,7 +298,7 @@
 	iTotalButtons=index;
 	
 	uiv_testFitButtonHOlder = [[UIView alloc] initWithFrame:CGRectZero];
-	[uiv_testFitButtonHOlder setBackgroundColor:[UIColor clearColor]];
+	[uiv_testFitButtonHOlder setBackgroundColor:[UIColor redColor]];
 	[self.view addSubview:uiv_testFitButtonHOlder];
 	
 	CGFloat viewWidth = 0;
