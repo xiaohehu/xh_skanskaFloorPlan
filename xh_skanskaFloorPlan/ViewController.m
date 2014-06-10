@@ -26,6 +26,9 @@
 @property (readonly, strong, nonatomic) NSArray					*arr_pageData;
 @property (strong, nonatomic)           UIPageViewController	*pageViewController;
 @property (nonatomic, readwrite)        NSInteger               currentPage;
+
+@property (nonatomic, strong)           UIButton                *uib_upArrowBtn;
+@property (nonatomic, strong)           UIButton                *uib_downArrwoBtn;
 @end
 
 @implementation ViewController
@@ -66,6 +69,23 @@
     _uiv_floorIndicator.frame =CGRectZero;
     [_uiiv_bldingImg addSubview: _uiv_floorIndicator];
     _uiv_floorIndicator.hidden = YES;
+    
+    //Set Arrow Buttons
+    _uib_upArrowBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    _uib_upArrowBtn.frame = CGRectMake(640, 64, 47, 47);
+    [_uib_upArrowBtn setImage:[UIImage imageNamed:@"grfx_flooplan_up.png"] forState:UIControlStateNormal];
+    _uib_upArrowBtn.tag = 10;
+    [_uib_upArrowBtn addTarget:self action:@selector(arrowBtnTapped:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view insertSubview:_uib_upArrowBtn atIndex:10];
+    _uib_upArrowBtn.hidden = YES;
+    
+    _uib_downArrwoBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    _uib_downArrwoBtn.frame = CGRectMake(640, 695, 47, 47);
+    [_uib_downArrwoBtn setImage:[UIImage imageNamed:@"grfx_flooplan_down.png"] forState:UIControlStateNormal];
+    _uib_downArrwoBtn.tag = 11;
+    [_uib_downArrwoBtn addTarget:self action:@selector(arrowBtnTapped:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view insertSubview:_uib_downArrwoBtn atIndex:10];
+    _uib_downArrwoBtn.hidden = YES;
     
     //Set colored floor
     for (int i = 0; i < 4; i++) {
@@ -135,6 +155,48 @@
     }
 }
 
+#pragma mark - Tap Arrow button 
+-(void)arrowBtnTapped:(id)sender {
+    UIButton *tmpBtn = sender;
+    int index = (int)tmpBtn.tag;
+    
+    if (index == 10){
+        _currentPage--;
+        embDataViewController *startingViewController = [self.modelController viewControllerAtIndex:_currentPage storyboard:self.storyboard];
+        
+        NSArray *viewControllers = @[startingViewController];
+        
+        [self.pageViewController setViewControllers:viewControllers
+                                          direction:UIPageViewControllerNavigationDirectionReverse
+                                           animated:YES
+                                         completion:nil];
+    }
+    if (index == 11) {
+        _currentPage++;
+        embDataViewController *startingViewController = [self.modelController viewControllerAtIndex:_currentPage storyboard:self.storyboard];
+        
+        NSArray *viewControllers = @[startingViewController];
+        
+        [self.pageViewController setViewControllers:viewControllers
+                                          direction:UIPageViewControllerNavigationDirectionForward
+                                           animated:YES
+                                         completion:nil];
+    }
+    [self setPageIndex];
+//    if (_currentPage == 0) {
+//        _uib_upArrowBtn.hidden = YES;
+//        _uib_downArrwoBtn.hidden = NO;
+//    }
+//    else if (_currentPage == (_arr_pageData.count - 1)) {
+//        _uib_downArrwoBtn.hidden = YES;
+//        _uib_upArrowBtn.hidden = NO;
+//    }
+//    else {
+//        _uib_upArrowBtn.hidden = NO;
+//        _uib_downArrwoBtn.hidden = NO;
+//    }
+}
+
 #pragma mark - Dotview's button is tapped & Floor button is tapped
 
 -(void)seletctDotsViewItemAtIndex:(NSInteger)index {
@@ -159,6 +221,9 @@
 }
 
 -(void)tapToBack:(UITapGestureRecognizer *)sender {
+    [_uib_downArrwoBtn removeFromSuperview];
+    [_uib_upArrowBtn removeFromSuperview];
+    
     UITapGestureRecognizer *tmpTap = sender;
     [_uiiv_bldingImg removeGestureRecognizer:tmpTap];
     
@@ -244,6 +309,7 @@
 -(void)initPageView:(NSInteger)index {
     self.pageViewController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationVertical options:nil];
     self.pageViewController.delegate = self;
+    self.pageViewController.dataSource = self.modelController;
     self.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     self.view.autoresizesSubviews =YES;
     self.pageViewController.view.frame = CGRectMake(0, 0, 1024, 768);
@@ -258,8 +324,21 @@
 }
 
 -(void)loadPage:(int)page {
-    self.pageViewController.dataSource = self.modelController;
-    [self.view addSubview: self.pageViewController.view];
+//    if (page == 0) {
+//        _uib_downArrwoBtn.hidden = NO;
+//        _uib_upArrowBtn.hidden = YES;
+//    }
+//    else if (page == (_arr_pageData.count - 1)) {
+//        _uib_upArrowBtn.hidden = NO;
+//        _uib_downArrwoBtn.hidden = YES;
+//    }
+//    else {
+//        _uib_downArrwoBtn.hidden = NO;
+//        _uib_upArrowBtn.hidden = NO;
+//    }
+    
+    
+//    [self.view addSubview: self.pageViewController.view];
     
     embDataViewController *startingViewController = [self.modelController viewControllerAtIndex:page storyboard:self.storyboard];
 	
@@ -295,8 +374,22 @@
         for (UIView *tmpDotView in _arr_dotViewArray) {
             tmpDotView.alpha = 0.0;
         }
+        
+        if (_currentPage == 0) {
+            _uib_downArrwoBtn.hidden = NO;
+            _uib_upArrowBtn.hidden = YES;
+        }
+        else if (_currentPage == (_arr_pageData.count - 1)) {
+            _uib_upArrowBtn.hidden = NO;
+            _uib_downArrwoBtn.hidden = YES;
+        }
+        else {
+            _uib_downArrwoBtn.hidden = NO;
+            _uib_upArrowBtn.hidden = NO;
+        }
+
+        
     }];
-    
 }
 
 #pragma mark - PageViewController
@@ -322,6 +415,18 @@
     embDataViewController *theCurrentViewController = [self.pageViewController.viewControllers objectAtIndex:0];
     int index = (int)[self.modelController indexOfViewController:theCurrentViewController];
     _currentPage = index;
+    if (_currentPage == 0) {
+        _uib_downArrwoBtn.hidden = NO;
+        _uib_upArrowBtn.hidden = YES;
+    }
+    else if (_currentPage == (_arr_pageData.count - 1)) {
+        _uib_upArrowBtn.hidden = NO;
+        _uib_downArrwoBtn.hidden = YES;
+    }
+    else {
+        _uib_downArrwoBtn.hidden = NO;
+        _uib_upArrowBtn.hidden = NO;
+    }
     UIButton *tmpBtn;
     for (UIButton *tmp in _arr_bldingBtnArray) {
         if (tmp.tag == index) {

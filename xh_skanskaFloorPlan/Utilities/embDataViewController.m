@@ -295,7 +295,7 @@
             uib_testFitBtn.selected = YES;
         }
         else {
-            UIView *uiv_divideBar = [[UIView alloc] initWithFrame:CGRectMake(pre_X + pre_size.width + space + 5, 0.0, 1.0, uiv_testFitButtonHOlder.frame.size.height)];
+            UIView *uiv_divideBar = [[UIView alloc] initWithFrame:CGRectMake(pre_X + pre_size.width + space + 5, 10.0, 1.0, uiv_testFitButtonHOlder.frame.size.height - 20)];
             uiv_divideBar.backgroundColor = [UIColor whiteColor];
             [uiv_testFitButtonHOlder addSubview: uiv_divideBar];
         }

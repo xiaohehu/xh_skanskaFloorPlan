@@ -48,6 +48,10 @@
 		82974CD8194785B200409DC7 /* grfx_floorplan7_testfit@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 82974CD0194785B200409DC7 /* grfx_floorplan7_testfit@2x.png */; };
 		82974CD9194785B200409DC7 /* grfx_floorplan8_testfit.png in Resources */ = {isa = PBXBuildFile; fileRef = 82974CD1194785B200409DC7 /* grfx_floorplan8_testfit.png */; };
 		82974CDA194785B200409DC7 /* grfx_floorplan8_testfit@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 82974CD2194785B200409DC7 /* grfx_floorplan8_testfit@2x.png */; };
+		82974CDF1947911900409DC7 /* grfx_flooplan_down.png in Resources */ = {isa = PBXBuildFile; fileRef = 82974CDB1947911900409DC7 /* grfx_flooplan_down.png */; };
+		82974CE01947911900409DC7 /* grfx_flooplan_down@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 82974CDC1947911900409DC7 /* grfx_flooplan_down@2x.png */; };
+		82974CE11947911900409DC7 /* grfx_flooplan_up.png in Resources */ = {isa = PBXBuildFile; fileRef = 82974CDD1947911900409DC7 /* grfx_flooplan_up.png */; };
+		82974CE21947911900409DC7 /* grfx_flooplan_up@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 82974CDE1947911900409DC7 /* grfx_flooplan_up@2x.png */; };
 		82B69AA8194232B8004BCE39 /* data.plist in Resources */ = {isa = PBXBuildFile; fileRef = 82B69AA7194232B8004BCE39 /* data.plist */; };
 		82B69AAB1942444A004BCE39 /* UIColor+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 82B69AAA1942444A004BCE39 /* UIColor+Extensions.m */; };
 		82FE13221941FCC80040E149 /* xh_dotsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 82FE13211941FCC80040E149 /* xh_dotsView.m */; };
@@ -116,6 +120,10 @@
 		82974CD0194785B200409DC7 /* grfx_floorplan7_testfit@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "grfx_floorplan7_testfit@2x.png"; sourceTree = "<group>"; };
 		82974CD1194785B200409DC7 /* grfx_floorplan8_testfit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grfx_floorplan8_testfit.png; sourceTree = "<group>"; };
 		82974CD2194785B200409DC7 /* grfx_floorplan8_testfit@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "grfx_floorplan8_testfit@2x.png"; sourceTree = "<group>"; };
+		82974CDB1947911900409DC7 /* grfx_flooplan_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grfx_flooplan_down.png; sourceTree = "<group>"; };
+		82974CDC1947911900409DC7 /* grfx_flooplan_down@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "grfx_flooplan_down@2x.png"; sourceTree = "<group>"; };
+		82974CDD1947911900409DC7 /* grfx_flooplan_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grfx_flooplan_up.png; sourceTree = "<group>"; };
+		82974CDE1947911900409DC7 /* grfx_flooplan_up@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "grfx_flooplan_up@2x.png"; sourceTree = "<group>"; };
 		82B69AA7194232B8004BCE39 /* data.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = data.plist; sourceTree = "<group>"; };
 		82B69AA91942444A004BCE39 /* UIColor+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Extensions.h"; sourceTree = "<group>"; };
 		82B69AAA1942444A004BCE39 /* UIColor+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Extensions.m"; sourceTree = "<group>"; };
@@ -191,6 +199,10 @@
 				824E0BF4194624BE00158620 /* grfx_floorPlan_bg@2x.jpg */,
 				824E0BF7194627DC00158620 /* grfx_floorplan_blding.png */,
 				824E0BF8194627DC00158620 /* grfx_floorplan_blding@2x.png */,
+				82974CDB1947911900409DC7 /* grfx_flooplan_down.png */,
+				82974CDC1947911900409DC7 /* grfx_flooplan_down@2x.png */,
+				82974CDD1947911900409DC7 /* grfx_flooplan_up.png */,
+				82974CDE1947911900409DC7 /* grfx_flooplan_up@2x.png */,
 				82B69AA7194232B8004BCE39 /* data.plist */,
 				820366431940EEDA00FB132A /* floorplanData.plist */,
 				824E0BE21946078600158620 /* Floorplans_stack */,
@@ -364,14 +376,18 @@
 				824E0BED1946078600158620 /* grfx_floorplan6_sample.png in Resources */,
 				82974CD7194785B200409DC7 /* grfx_floorplan7_testfit.png in Resources */,
 				824E0BEB1946078600158620 /* grfx_floorplan2_sample.png in Resources */,
+				82974CE01947911900409DC7 /* grfx_flooplan_down@2x.png in Resources */,
 				824E0BEC1946078600158620 /* grfx_floorplan2_sample@2x.png in Resources */,
 				82974CD8194785B200409DC7 /* grfx_floorplan7_testfit@2x.png in Resources */,
 				820366191940C2C300FB132A /* InfoPlist.strings in Resources */,
 				820366221940C2C300FB132A /* Main.storyboard in Resources */,
 				824E0BF6194624BE00158620 /* grfx_floorPlan_bg@2x.jpg in Resources */,
+				82974CDF1947911900409DC7 /* grfx_flooplan_down.png in Resources */,
+				82974CE21947911900409DC7 /* grfx_flooplan_up@2x.png in Resources */,
 				82974CD3194785B200409DC7 /* grfx_floorplan2_testfit.png in Resources */,
 				82B69AA8194232B8004BCE39 /* data.plist in Resources */,
 				824E0BF01946078600158620 /* grfx_floorplan7_sample@2x.png in Resources */,
+				82974CE11947911900409DC7 /* grfx_flooplan_up.png in Resources */,
 				82974CD4194785B200409DC7 /* grfx_floorplan2_testfit@2x.png in Resources */,
 				824E0BF9194627DC00158620 /* grfx_floorplan_blding.png in Resources */,
 				824E0BF11946078600158620 /* grfx_floorplan8_sample.png in Resources */,
@@ -533,7 +549,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "xh_skanskaFloorPlan/xh_skanskaFloorPlan-Prefix.pch";
 				INFOPLIST_FILE = "xh_skanskaFloorPlan/xh_skanskaFloorPlan-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -547,7 +563,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "xh_skanskaFloorPlan/xh_skanskaFloorPlan-Prefix.pch";
 				INFOPLIST_FILE = "xh_skanskaFloorPlan/xh_skanskaFloorPlan-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
