@@ -221,8 +221,8 @@
 }
 
 -(void)tapToBack:(UITapGestureRecognizer *)sender {
-    [_uib_downArrwoBtn removeFromSuperview];
-    [_uib_upArrowBtn removeFromSuperview];
+    _uib_downArrwoBtn.hidden = YES;
+    _uib_upArrowBtn.hidden = YES;
     
     UITapGestureRecognizer *tmpTap = sender;
     [_uiiv_bldingImg removeGestureRecognizer:tmpTap];
