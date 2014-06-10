@@ -28,13 +28,13 @@
 				<dict>
 					<key>testfitinfo</key>
 					<array>
-						<string>grfx-fp-panel-TF-midrise-perimeter.png</string>
-						<string>grfx-fp-panel-TF-midrise-perimeter.png</string>
+						<string>grfx_floorplan8_sample.png</string>
+						<string>grfx_floorplan8_testfit.png</string>
 					</array>
 					<key>testfitimages</key>
 					<array>
-						<string>grfx_floor_plans_1_tenants.png</string>
-						<string>grfx_floor_plans_2_tenants.png</string>
+						<string>grfx_floorplan8_sample.png</string>
+						<string>grfx_floorplan8_testfit.png</string>
 					</array>
 					<key>testfitcaptions</key>
 					<array>
@@ -76,8 +76,8 @@
 					</array>
 					<key>testfitimages</key>
 					<array>
-						<string>grfx_floor_plans_1_tenants.png</string>
-						<string>grfx_floor_plans_2_tenants.png</string>
+						<string>grfx_floorplan7_sample.png</string>
+						<string>grfx_floorplan7_testfit.png</string>
 					</array>
 					<key>testfitcaptions</key>
 					<array>
@@ -119,8 +119,8 @@
 					</array>
 					<key>testfitimages</key>
 					<array>
-						<string>grfx_floor_plans_1_tenants.png</string>
-						<string>grfx_floor_plans_2_tenants.png</string>
+						<string>grfx_floorplan6_sample.png</string>
+						<string>grfx_floorplan6_testfit.png</string>
 					</array>
 					<key>testfitcaptions</key>
 					<array>
@@ -162,8 +162,8 @@
 					</array>
 					<key>testfitimages</key>
 					<array>
-						<string>grfx_floor_plans_1_tenants.png</string>
-						<string>grfx_floor_plans_2_tenants.png</string>
+						<string>grfx_floorplan2_sample.png</string>
+						<string>grfx_floorplan2_testfit.png</string>
 					</array>
 					<key>testfitcaptions</key>
 					<array>
