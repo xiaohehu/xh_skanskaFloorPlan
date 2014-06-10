@@ -9,6 +9,7 @@
 #import "embDataViewController.h"
 #import "ebZoomingScrollView.h"
 #import "neoHotspotsView.h"
+#import "UIColor+Extensions.h"
 //#import "motionImageViewController.h"
 
 @interface embDataViewController () <neoHotspotsViewDelegate> {
@@ -18,7 +19,9 @@
 
 @property (nonatomic, strong) neoHotspotsView				*myHotspots;
 @property (nonatomic, strong) NSMutableArray				*arr_hotspots;
-@property (nonatomic, strong) NSMutableArray				*arr_testFitBtns;
+@property (nonatomic, strong) NSMutableArray				*arr_testFitBtnsName;
+@property (nonatomic, strong) NSMutableArray                *arr_testFitBtns;
+@property (nonatomic, strong) NSMutableArray                *arr_testFitImgs;
 @property (nonatomic, strong) ebZoomingScrollView			*zoomingScroll;
 @property (nonatomic, strong) UIImage						*uii_Plan;
 @property (nonatomic, strong) UIView						*uiv_PlanDataContainer;
@@ -40,7 +43,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 	_arr_hotspots = [[NSMutableArray alloc] init];
-
+    _arr_testFitBtns = [[NSMutableArray alloc] init];
 	// floor plans
 	_arr_floorplans = [[NSMutableArray alloc] init];
 	_dict = self.dataObject;
@@ -174,10 +177,13 @@
 	NSDictionary *tmp = [[NSDictionary alloc] init];
 	tmp = [_dict valueForKeyPath:@"floorplaninfo.testfits"][0];
 	
-	_arr_testFitBtns = [[NSMutableArray alloc] init];
-	_arr_testFitBtns = [tmp objectForKey:@"testfitcaptions"];
+	_arr_testFitBtnsName = [[NSMutableArray alloc] init];
+	_arr_testFitBtnsName = [tmp objectForKey:@"testfitcaptions"];
 
-	[self createTestFitButtons:(int)[_arr_testFitBtns count]];
+    _arr_testFitImgs = [[NSMutableArray alloc] init];
+    _arr_testFitImgs = [tmp objectForKey:@"testfitimages"];
+    
+	[self createTestFitButtons:(int)[_arr_testFitBtnsName count]];
 	
 	
 	
@@ -253,230 +259,75 @@
 //	}
 }
 
-#pragma mark - Shell Button
--(void)shellButton
-{
-	_uib_ShellBtn = [UIButton buttonWithType: UIButtonTypeCustom];
-	
-	_uib_ShellBtn.frame=CGRectMake(685, 125.5, 60, 44.5);
-	
-	[_uib_ShellBtn setBackgroundColor:[UIColor clearColor]];
-	_uib_ShellBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
-	
-
-    
-    UIEdgeInsets titleInsets = UIEdgeInsetsMake(0.0, 0.0, 0.0, 0.0);
-	_uib_ShellBtn.titleEdgeInsets = titleInsets;
-	[_uib_ShellBtn setTitle:@"Shell" forState:UIControlStateNormal];
-	
-	[_uib_ShellBtn addTarget:self action:@selector(loadShellFloorPlan) forControlEvents: UIControlEventTouchDown];
-	_uib_ShellBtn.titleLabel.font = [UIFont fontWithName:@"Arial" size:12];
-	[_uib_ShellBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-	
-	UIImage *buttonDefImage;
-	UIImage *buttonSelImage;
-	
-	buttonDefImage = [[UIImage imageNamed:@"str_def.png"]
-						resizableImageWithCapInsets:UIEdgeInsetsMake(0.0f, 1.0f, 0.0f, 1.0f)];
-	buttonSelImage = [[UIImage imageNamed:@"str_sel.png"]
-						resizableImageWithCapInsets:UIEdgeInsetsMake(0.0f, 1.0f, 0.0f, 1.0f)];
-	
-	[_uib_ShellBtn setBackgroundImage:buttonDefImage forState:UIControlStateNormal];
-	[_uib_ShellBtn setBackgroundImage:buttonSelImage forState:UIControlStateHighlighted];
-	[_uib_ShellBtn setBackgroundImage:buttonSelImage forState:UIControlStateSelected];
-	
-	_uib_ShellBtn.alpha=1.0;
-	[self.view addSubview:_uib_ShellBtn];
-	_uib_ShellBtn.selected=YES;
-}
-
-
-
 #pragma mark - Test Fit Buttons
 -(void)createTestFitButtons:(int)index
 {
 	iTotalButtons=index;
 	
-	uiv_testFitButtonHOlder = [[UIView alloc] initWithFrame:CGRectZero];
-	[uiv_testFitButtonHOlder setBackgroundColor:[UIColor redColor]];
+	uiv_testFitButtonHOlder = [[UIView alloc] initWithFrame:CGRectMake(0.0, 110, 370, 60.0)];
+	[uiv_testFitButtonHOlder setBackgroundColor:[UIColor clearColor]];
 	[self.view addSubview:uiv_testFitButtonHOlder];
-	
-	CGFloat viewWidth = 0;
-	CGSize	stringsize;
-	CGFloat	padding = -5.5;
-
+    NSDictionary *attributes = @{NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue" size:17]};
+    CGSize pre_size = CGSizeZero;
+    CGFloat pre_X = 0.0;
+    CGFloat space = 10;
+    
 	for (int j=0;j<iTotalButtons;j++){ //cols
-		
-		UIButton *firstButton;
-		firstButton = [UIButton buttonWithType: UIButtonTypeCustom];
-		firstButton.tag=j;
-		
-		NSString *tmp = _arr_testFitBtns[j];
-        NSArray *vComp = [[UIDevice currentDevice].systemVersion componentsSeparatedByString:@"."];
+        NSString *str_btnTitile = [_arr_testFitBtnsName objectAtIndex:j];
+        CGSize str_size =[str_btnTitile sizeWithAttributes:attributes];
         
-        if ([[vComp objectAtIndex:0] intValue] >= 7) {
-            // iOS-7 code[current] or greater
-            stringsize = [tmp sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:13.0f]}];
-        } else if ([[vComp objectAtIndex:0] intValue] == 6) {
-            // iOS-6 code
-            stringsize = [tmp sizeWithFont:[UIFont systemFontOfSize:13.0f]];
+		UIButton *uib_testFitBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        uib_testFitBtn.frame = CGRectMake((pre_size.width + space + 11.0 + pre_X), 0.0, str_size.width + space, 60.0);
+        [uib_testFitBtn setTitle:str_btnTitile forState:UIControlStateNormal];
+        [uib_testFitBtn setTitle:str_btnTitile forState:UIControlStateSelected];
+        [uib_testFitBtn setTitleColor:[UIColor skDarkGray] forState:UIControlStateSelected];
+        [uib_testFitBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        uib_testFitBtn.tag = j;
+        [uib_testFitBtn addTarget:self action:@selector(testFitBtnTapped:) forControlEvents:UIControlEventTouchUpInside];
+        
+        if (uib_testFitBtn.selected)
+            [uib_testFitBtn.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue" size:15]];
+        
+        else
+            [uib_testFitBtn.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue" size:17]];
+        
+        if (j == 0) {
+            uib_testFitBtn.selected = YES;
         }
- 		
-		if (j==0) {
-			firstButton.frame=CGRectMake(padding, 0, stringsize.width+25, 44.5);
-		} else {
-			firstButton.frame=CGRectMake(viewWidth+padding, 0, stringsize.width+25, 44.5); // -10 ///////////////////////////
-		}
-		
-		viewWidth += firstButton.frame.size.width+padding; // 7 ///////////////////////////
-		
-		[firstButton setBackgroundColor:[UIColor clearColor]];
-		firstButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
-		
-		UIEdgeInsets titleInsets = UIEdgeInsetsMake(0.0, 0.0, 0.0, 0.0);
-		firstButton.titleEdgeInsets = titleInsets;
-		[firstButton setTitle:_arr_testFitBtns[j] forState:UIControlStateNormal];
-		
-		[firstButton addTarget:self action:@selector(switchShellToTestFit:) forControlEvents: UIControlEventTouchDown];
-		firstButton.titleLabel.font = [UIFont fontWithName:@"Arial" size:12];
-		[firstButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-		
-		UIImage *buttonDefImage;
-		UIImage *buttonSelImage;
-
-		if ([_arr_testFitBtns count]==1) { // one button only t,l,b,r
-			buttonDefImage = [[UIImage imageNamed:@"str_def.png"]
-						   resizableImageWithCapInsets:UIEdgeInsetsMake(0.0f, 1.5f, 0.0f, 1.0f)];
-			buttonSelImage = [[UIImage imageNamed:@"str_sel.png"]
-							  resizableImageWithCapInsets:UIEdgeInsetsMake(0.0f, 1.0f, 0.0f, 1.0f)];
-			
-		} else if ([_arr_testFitBtns count]==2) {
-			
-			if (j==0) {
-				buttonDefImage = [[UIImage imageNamed:@"left_def.png"]
-								  resizableImageWithCapInsets:UIEdgeInsetsMake(0.0f, 1.75f, 0.0f, 6.0f)];
-				buttonSelImage = [[UIImage imageNamed:@"left_sel.png"]
-								  resizableImageWithCapInsets:UIEdgeInsetsMake(0.0f, 1.75f, 0.0f, 6.0f)];
-			} else {
-
-				buttonDefImage = [[UIImage imageNamed:@"right_def.png"]
-								  resizableImageWithCapInsets:UIEdgeInsetsMake(0.0f, 6.0f, 0.0f, 1.75f)];
-				buttonSelImage = [[UIImage imageNamed:@"right_sel.png"]
-								  resizableImageWithCapInsets:UIEdgeInsetsMake(0.0f, 6.0f, 0.0f, 1.75f)];
-			}
-			
-		} else if ([_arr_testFitBtns count]==3) {
-			NSLog(@"3");
-			if (j==0) {
-				buttonDefImage = [[UIImage imageNamed:@"left_def.png"]
-								  resizableImageWithCapInsets:UIEdgeInsetsMake(0.0f, 1.75f, 0.0f, 6.0f)];
-				buttonSelImage = [[UIImage imageNamed:@"left_sel.png"]
-								  resizableImageWithCapInsets:UIEdgeInsetsMake(0.0f, 1.75f, 0.0f, 6.0f)];
-			} else if (j==1) {
-				buttonDefImage = [[UIImage imageNamed:@"mid_def.png"]
-								  resizableImageWithCapInsets:UIEdgeInsetsMake(0.0f, 6.0f, 0.0f, 7.0f)];
-				buttonSelImage = [[UIImage imageNamed:@"mid_sel.png"]
-								  resizableImageWithCapInsets:UIEdgeInsetsMake(0.0f, 6.0f, 0.0f, 6.0f)];
-			} else {
-				buttonDefImage = [[UIImage imageNamed:@"right_def.png"]
-								  resizableImageWithCapInsets:UIEdgeInsetsMake(0.0f, 6.0f, 0.0f, 1.75f)];
-				buttonSelImage = [[UIImage imageNamed:@"right_sel.png"]
-								  resizableImageWithCapInsets:UIEdgeInsetsMake(0.0f, 6.0f, 0.0f, 1.75f)];
-
-			}
-			
-		} else {
-			buttonDefImage = [[UIImage imageNamed:@"str_sel.png"]
-						   resizableImageWithCapInsets:UIEdgeInsetsMake(0.0f, 6.0f, 0.0f, 6.0f)];
-		}
-		
-		[firstButton setBackgroundImage:buttonDefImage forState:UIControlStateNormal];
-		[firstButton setBackgroundImage:buttonSelImage forState:UIControlStateHighlighted];
-		[firstButton setBackgroundImage:buttonSelImage forState:UIControlStateSelected];
-        
-		CGRect frm = uiv_testFitButtonHOlder.frame;
-		frm.size.width = viewWidth+padding;
-		frm.size.height = 44.5;
-
-		uiv_testFitButtonHOlder.frame = frm;
-		frm.origin.x = 680 - uiv_testFitButtonHOlder.frame.size.width; // right edge
-		frm.origin.y = 170 - uiv_testFitButtonHOlder.frame.size.height; // bottom edge
-
-		uiv_testFitButtonHOlder.frame = frm;
-
-		[uiv_testFitButtonHOlder addSubview:firstButton];
+        else {
+            UIView *uiv_divideBar = [[UIView alloc] initWithFrame:CGRectMake(pre_X + pre_size.width + space + 5, 0.0, 1.0, uiv_testFitButtonHOlder.frame.size.height)];
+            uiv_divideBar.backgroundColor = [UIColor whiteColor];
+            [uiv_testFitButtonHOlder addSubview: uiv_divideBar];
+        }
+            
+        uib_testFitBtn.backgroundColor = [UIColor clearColor];
+        [uiv_testFitButtonHOlder addSubview: uib_testFitBtn];
+        pre_size = str_size;
+        pre_X = uib_testFitBtn.frame.origin.x;
+        [_arr_testFitBtns addObject: uib_testFitBtn];
 	}
 }
 
 
 #pragma mark Test Fit Toggle
--(IBAction)switchShellToTestFit:(id)sender
-{
-	// NSLog(@"switchShellToTestFit");
-	NSDictionary *tmp = [[NSDictionary alloc] init];
-	tmp = [_dict valueForKeyPath:@"floorplaninfo.testfits"][0];
-	NSMutableArray *arr_testFits = [[NSMutableArray alloc] init];
-	arr_testFits = [tmp objectForKey:@"testfitimages"];
-	
-	UIButton *resultButton = (UIButton *)sender;
-
-	//Toggle on implementation.
-	if (resultButton.selected == NO) {
-		
-		for (UIButton*btn in uiv_testFitButtonHOlder.subviews) {
-			if (btn != resultButton) {
-				[btn setSelected:NO];
-				[btn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-			}
-		}
-		
-		// NSLog(@"toggle on");
-		//[self clearAllButtons];
-		resultButton.selected = YES;
-		self.zoomingScroll.blurView.image = [UIImage imageNamed:arr_testFits[[sender tag]]];
-		[self setBackgroundOfButton:sender selected:YES];
-		[self setHotSpotVisibility:NO];
-		_uib_ShellBtn.selected=NO;
-		[_uib_ShellBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-	}
-	
-	//Toggle off implementation.
-	else {
-		NSLog(@"toggle off");
-		resultButton.selected = NO;
-		[self setHotSpotVisibility:YES];
-		dispatch_async(dispatch_get_main_queue(), ^{
-			[self loadShellFloorPlan];
-		});
-		[self setBackgroundOfButton:sender selected:NO];
-		_uib_ShellBtn.selected=YES;
-	}
-	
-	// update plan data
-	NSMutableArray *arr_testFitsInfo = [[NSMutableArray alloc] init];
-	arr_testFitsInfo = [tmp objectForKey:@"testfitinfo"];
-	
-	if ([arr_testFitsInfo[0] length] !=0) {
-		self.uii_PlanData = [UIImage imageNamed:arr_testFitsInfo[[sender tag]]];
-		self.uiiv_PlanData.image = _uii_PlanData;
-	}
-	
-}
-
-#pragma mark - Shell Plan
--(void)loadShellFloorPlan
-{
-	NSLog(@"loadShellFloorPlan");
-	self.zoomingScroll.blurView.image = [UIImage imageNamed:_floorplan[0]];
-	
-	NSString *planName = _dict[@"floorplaninfo"][0][@"floorinfo"][0];
-	NSLog(@"%@", planName);
-	self.uii_PlanData = [UIImage imageNamed:_dict[@"floorplaninfo"][0][@"floorinfo"][0]];
-	[self.uiiv_PlanData setImage:_uii_PlanData];
-	[_uib_ShellBtn setSelected:YES];
-	[_uib_ShellBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-
-	[self resetTestFitButtonsOnly];
+-(void)testFitBtnTapped:(id)sender {
+    for (UIButton *tmp in _arr_testFitBtns) {
+        tmp.selected = NO;
+    }
+    
+    UIButton *tmpBtn = sender;
+    tmpBtn.selected = !tmpBtn.selected;
+    
+    NSString *str_imgName = [_arr_testFitImgs objectAtIndex:tmpBtn.tag];
+    
+    [UIView animateWithDuration:0.33 animations:^{
+        _zoomingScroll.blurView.alpha = 0.0;
+    } completion:^(BOOL finished){
+        _zoomingScroll.blurView.image = [UIImage imageNamed:str_imgName];
+        [UIView animateWithDuration:0.33 animations:^{
+            _zoomingScroll.blurView.alpha = 1.0;
+        }];
+    }];
 }
 
 #pragma mark - Hotspot Visibility
